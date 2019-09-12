@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.qiudaozhang.hibernate5.model" >
+
+    <class name="Product" table="t_product" >
+        <id name="id"   >
+            <column name="pp_id"  ></column>
+            <generator class="sequence"></generator>
+        </id>
+        <property name="name" />
+        <property name="price"/>
+    </class>
+</hibernate-mapping>
