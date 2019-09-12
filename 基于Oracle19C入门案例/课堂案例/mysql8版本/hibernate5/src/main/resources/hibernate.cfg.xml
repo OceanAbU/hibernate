@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+
+    <!--    hibernate的核心配置文件-->
+
+    <session-factory>
+        <!--        访问数据库四大金刚-->
+        <!--        oracle 默认端口是1521，MySQL3306
+             中间不要写空格
+        -->
+<!--        <property name="connection.url">jdbc:oracle:thin:@localhost:1521/orclpdb</property>-->
+<!--        <property name="connection.username">ot</property>-->
+<!--        <property name="connection.password">ot</property>-->
+<!--        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>-->
+
+<!--        mysql配置-->
+        <property name="connection.url" >jdbc:mysql://localhost:3306/hibernate144?serverTimezone=GMT%2B8</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!--        指定方言，你讲湖南 还是四川话  问你用什么数据库的意思
+                如果你用MySQL，就告诉我，方言是MYSQL，那么hibernate最后翻译SQL的时候会使用MYSQL语法。
+                如果是Oracle就用Oracle的语法。
+                hibernate的可移植性叫强，mybatis这方面有点无能为例
+                写属性的时候，前面的前缀hibernate.可以省略
+         -->
+
+<!--        方言置换为mysql-->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+<!--        <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>-->
+        <!--        配置SQl语句，打印和格式化-->
+        <!--        打印SQL语句-->
+        <property name="show_sql">true</property>
+        <!--        格式化，漂亮点-->
+        <property name="format_sql">true</property>
+        <!--        ddl 模式，由hibernate来负责表的创建，修改，数据的删除-->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+        <mapping resource="hbm/Product.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
