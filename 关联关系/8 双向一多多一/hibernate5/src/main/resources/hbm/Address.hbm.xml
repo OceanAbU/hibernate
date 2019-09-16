@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.qiudaozhang.hibernate5.model">
+
+
+    <class name="Address" >
+        <id name="aid">
+            <generator class="native"/>
+        </id>
+        <property name="city"/>
+        <many-to-one name="person" column="pid">
+        </many-to-one>
+    </class>
+
+    <class name="Person">
+         <id name="pid">
+             <generator class="native"/>
+         </id>
+        <property name="name"/>
+        <set name="addresses" >
+            <key column="pid"></key>
+            <one-to-many class="Address"/>
+        </set>
+    </class>
+
+</hibernate-mapping>
