@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.qiudaozhang.hibernate5.model.Country" table="countries">
+        <id name="id" column="country_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="country_name"/>
+<!--        多对一-->
+        <many-to-one   name="region" column="region_id" class="com.qiudaozhang.hibernate5.model.Region"/>
+    </class>
+</hibernate-mapping>

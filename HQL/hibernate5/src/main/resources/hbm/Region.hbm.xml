@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.qiudaozhang.hibernate5.model.Region" table="regions">
+        <id name="id" column="region_id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" column="region_name"/>
+<!--        一对多-->
+        <set name="countries">
+            <key column="region_id"></key>
+            <one-to-many class="com.qiudaozhang.hibernate5.model.Country"  />
+        </set>
+    </class>
+</hibernate-mapping>
