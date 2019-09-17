@@ -12,7 +12,7 @@
 
         <join table="address_person">
             <key column="aid"></key>
-            <many-to-one name="person" class="Person" column="pid" unique="true"/>
+            <many-to-one name="person" class="Person" column="pid"  />
         </join>
     </class>
 
@@ -23,7 +23,7 @@
         <property name="name"/>
         <set name="addresses" table="address_person">
             <key column="pid"></key>
-            <many-to-many class="Address" column="aid"/>
+            <many-to-many class="Address" column="aid" unique="true"/>
         </set>
     </class>
 
